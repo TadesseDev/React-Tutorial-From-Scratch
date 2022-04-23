@@ -1,13 +1,9 @@
-import React, { Component } from 'react';
-
-class ToDoItem extends Component {
-  render() {
-    return (
-      <li>
-        <li key={this.props.id}>{this.props.title}</li>
-      </li>
-    );
-  }
+function ToDoItem(props) {
+  return (
+    <li>
+      <li key={props.id}>{props.title}</li>
+    </li>
+  );
 }
 
 export default ToDoItem;
