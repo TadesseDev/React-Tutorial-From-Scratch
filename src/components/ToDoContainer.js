@@ -18,12 +18,20 @@ export default class TodoContainer extends Component {
         title: "Deploy to live server",
         completed: false
       }
-    ]
+    ],
+    counter: 0,
   };
+  updateState = () => {
+    this.setState(() => ({
+      counter: this.state.counter += 2
+    }))
+  }
   render() {
     return (
       <div>
-        <ToDoList toDoList={this.state.todos} />
+        <h1>{this.state.counter}</h1>
+        <ToDoList toDoList={this.state.todos} counter={this.state.counter} />
+        <button type="submit" onClick={this.updateState}>increment counter</button>
       </div>
     )
   }
