@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import ToDoList from './ToDoList'
+import Header from './Header';
 export default class TodoContainer extends Component {
   state = {
     todos: [
@@ -29,9 +30,8 @@ export default class TodoContainer extends Component {
   render() {
     return (
       <div>
-        <h1>{this.state.counter}</h1>
+        <Header />
         <ToDoList toDoList={this.state.todos} counter={this.state.counter} />
-        <button type="submit" onClick={this.updateState}>increment counter</button>
       </div>
     )
   }
