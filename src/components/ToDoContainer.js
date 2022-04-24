@@ -3,6 +3,7 @@ import ToDoList from './ToDoList'
 import Header from './Header';
 import InputToDo from './InputToDo'
 import { v4 as uuid } from 'uuid'
+import '../App.css'
 export default class TodoContainer extends Component {
   state = {
     todos: [
@@ -56,10 +57,12 @@ export default class TodoContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <Header />
-        <InputToDo addTask={this.addTask} />
-        <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} deleteHandler={this.delTask} />
+      <div id="container">
+        <div className="inner">
+          <Header />
+          <InputToDo addTask={this.addTask} />
+          <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} deleteHandler={this.delTask} />
+        </div>
       </div>
     )
   }

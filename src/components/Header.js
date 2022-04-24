@@ -1,7 +1,20 @@
-const Header = props => {
+const Header = () => {
+  const styleObject = {
+    fontSize: "6rem",
+    fontWeight: "600",
+    marginBottom: "2rem",
+    lineHeight: "1em",
+    color: "#ececec",
+    textTransform: "lowercase",
+    textAlign: "center",
+  };
+  const headerStyle = {
+    padding: "20px 0",
+    lineHeight: "1.5em",
+  }
   return (
-    <header>
-      <h1>Todos</h1>
+    <header style={headerStyle}>
+      <h1 style={styleObject}>Todos</h1>
     </header>
   );
 }
