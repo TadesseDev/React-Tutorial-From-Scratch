@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ToDoList from './ToDoList'
 import Header from './Header';
 import InputToDo from './InputToDo'
+import uui4 from './uui4'
 export default class TodoContainer extends Component {
   state = {
     todos: [
@@ -43,7 +44,15 @@ export default class TodoContainer extends Component {
     console.log('deleting task ' + id);
   }
   addTask = (title) => {
-    console.log(title);
+    this.setState(oldState => ({
+      todos: [
+        ...oldState.todos,
+        {
+          id: uui4(),
+          title: title,
+          completed: false
+        }]
+    }))
   }
   render() {
     return (
