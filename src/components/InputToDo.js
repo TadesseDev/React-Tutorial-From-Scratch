@@ -4,10 +4,9 @@ export default class InputToDo extends Component {
     title: "",
   }
   updateTaskTitle = (e) => {
-    this.setState((oldState) => ({
-      ...oldState,
+    this.setState({
       title: e.target.value
-    }));
+    });
   }
   render() {
     return (
