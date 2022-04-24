@@ -55,13 +55,29 @@ export default class TodoContainer extends Component {
         }]
     }))
   }
+  setUpdate = (updatedTitle, id) => {
+    this.setState({
+      todos: [
+        ...this.state.todos.map(todo => {
+          if (todo.id === id)
+            todo.title = updatedTitle;
+          return todo;
+        })
+      ]
+    });
+  }
   render() {
     return (
       <div id="container">
         <div className="inner">
           <Header />
           <InputToDo addTask={this.addTask} />
-          <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} deleteHandler={this.delTask} />
+          <ToDoList
+            toDoList={this.state.todos}
+            changeHandlerProp={this.handleChange}
+            deleteHandler={this.delTask}
+            setUpdate={this.setUpdate}
+          />
         </div>
       </div>
     )

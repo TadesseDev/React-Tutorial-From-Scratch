@@ -11,6 +11,7 @@ export default class ToDoList extends Component {
               task={task}
               changeHandlerProp={this.props.changeHandlerProp}
               deleteHandler={this.props.deleteHandler}
+              setUpdate={this.props.setUpdate}
             />
           ))
         }
