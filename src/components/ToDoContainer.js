@@ -20,13 +20,8 @@ export default class TodoContainer extends Component {
         completed: false
       }
     ],
-    counter: 0,
   };
-  updateState = () => {
-    this.setState(() => ({
-      counter: this.state.counter += 2
-    }))
-  }
+
   render() {
     return (
       <div>

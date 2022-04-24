@@ -5,7 +5,7 @@ export default class ToDoList extends Component {
     return (
       <ul>
         {
-          this.props.toDoList.map(task => (<ToDoItem id={task.id} title={task.title} />))
+          this.props.toDoList.map(task => (<ToDoItem key={task.id} task={task} />))
         }
       </ul>
     )

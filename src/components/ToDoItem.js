@@ -4,7 +4,8 @@ class ToDoItem extends Component {
   render() {
     return (
       <li>
-        <li key={this.props.id}>{this.props.title}</li>
+        <input type="checkbox" name="status" id="status" checked={this.props.task.completed} onChange={() => console.log('cliked')} />
+        {this.props.task.title}
       </li>
     );
   }
