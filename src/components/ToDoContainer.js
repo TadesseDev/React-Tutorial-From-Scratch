@@ -42,11 +42,14 @@ export default class TodoContainer extends Component {
     }))
     console.log('deleting task ' + id);
   }
+  addTask = (title) => {
+    console.log(title);
+  }
   render() {
     return (
       <div>
         <Header />
-        <InputToDo />
+        <InputToDo addTask={this.addTask} />
         <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} deleteHandler={this.delTask} />
       </div>
     )
