@@ -9,6 +9,7 @@ class ToDoItem extends Component {
           checked={this.props.task.completed}
           onChange={() => this.props.changeHandlerProp(this.props.task.id)}
         />
+        <button onClick={() => this.props.deleteHandler(this.props.task.id)}>Delete</button>
         {this.props.task.title}
       </li>
     );

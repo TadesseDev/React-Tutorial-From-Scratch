@@ -35,11 +35,14 @@ export default class TodoContainer extends Component {
       }
     ));
   }
+  delTask = id => {
+    console.log('deleting task ' + id);
+  }
   render() {
     return (
       <div>
         <Header />
-        <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} />
+        <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} deleteHandler={this.delTask} />
       </div>
     )
   }
