@@ -36,6 +36,9 @@ export default class TodoContainer extends Component {
     ));
   }
   delTask = id => {
+    this.setState(oldState => ({
+      todos: oldState.todos.filter(todo => todo.id !== id)
+    }))
     console.log('deleting task ' + id);
   }
   render() {
