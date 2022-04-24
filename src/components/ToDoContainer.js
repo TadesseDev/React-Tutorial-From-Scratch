@@ -21,12 +21,14 @@ export default class TodoContainer extends Component {
       }
     ],
   };
-
+  handleChange = (id) => {
+    console.log("handle change is triggered with " + id + " checkbox");
+  }
   render() {
     return (
       <div>
         <Header />
-        <ToDoList toDoList={this.state.todos} counter={this.state.counter} />
+        <ToDoList toDoList={this.state.todos} changeHandlerProp={this.handleChange} />
       </div>
     )
   }

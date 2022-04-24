@@ -4,11 +4,14 @@ class ToDoItem extends Component {
   render() {
     return (
       <li>
-        <input type="checkbox" name="status" id="status" checked={this.props.task.completed} onChange={() => console.log('cliked')} />
+        <input
+          type="checkbox"
+          checked={this.props.task.completed}
+          onChange={() => this.props.changeHandlerProp(this.props.task.id)}
+        />
         {this.props.task.title}
       </li>
     );
   }
 }
-
 export default ToDoItem;
