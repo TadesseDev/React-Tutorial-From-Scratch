@@ -10,8 +10,12 @@ export default class InputToDo extends Component {
   }
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.addTask(this.state.title);
-    this.setState({ title: '' });
+    if (this.state.title.trim()) {
+      this.props.addTask(this.state.title);
+      this.setState({ title: '' });
+    }
+    else
+      alert('pleas enter a valid text');
   }
   render() {
     return (
