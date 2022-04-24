@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import ToDoList from './ToDoList'
 import Header from './Header';
 export default class TodoContainer extends Component {
@@ -22,13 +22,18 @@ export default class TodoContainer extends Component {
     ],
   };
   handleChange = (id) => {
-    this.setState({
-      todos: this.state.todos.map(todo => {
-        if (todo.id === id)
-          todo.completed = !todo.completed;
-        return todo;
-      })
-    });
+    this.setState(oldState => (
+      {
+        ...oldState,
+        todos: oldState.todos.map(todo => {
+          if (todo.id === id) return {
+            ...todo,
+            completed: !todo.completed
+          }
+          return todo;
+        })
+      }
+    ));
   }
   render() {
     return (
