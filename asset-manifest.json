@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/css/main.187cb25a.css",
-    "main.js": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/js/main.c50b05e6.js",
+    "main.js": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/js/main.58434612.js",
     "index.html": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/index.html",
     "main.187cb25a.css.map": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/css/main.187cb25a.css.map",
-    "main.c50b05e6.js.map": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/js/main.c50b05e6.js.map"
+    "main.58434612.js.map": "/Tadesse-Alemayehu/React-Tutorial-From-Scratch/static/js/main.58434612.js.map"
   },
   "entrypoints": [
     "static/css/main.187cb25a.css",
-    "static/js/main.c50b05e6.js"
+    "static/js/main.58434612.js"
   ]
 }
