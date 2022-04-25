@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import styles from "./ToDoItem.module.css"
-class ToDoItem extends Component {
+import styles from './ToDoItem.module.css';
 
+class ToDoItem extends Component {
   state = {
     editing: false,
   }
@@ -9,30 +9,28 @@ class ToDoItem extends Component {
   handleEdit = () => {
     this.setState({
       editing: true,
-    })
+    });
   }
+
   handleUpdateDone = (e) => {
-    if (e.key === 'Enter')
-      this.setState({ editing: false });
+    if (e.key === 'Enter') { this.setState({ editing: false }); }
   }
 
   componentWillUnmount() {
-    console.log('deleting todo item: ', this.props.id)
+    console.log('deleting todo item: ', this.props.id);
   }
+
   render() {
     const { completed, id, title } = this.props.task;
     const completedStyle = {
-      fontStyle: "italic",
-      color: "#595959",
+      fontStyle: 'italic',
+      color: '#595959',
       opacity: 0.4,
-      textDecoration: "line-through",
-    }
+      textDecoration: 'line-through',
+    };
     const viewMode = {};
     const editMod = {};
-    if (this.state.editing)
-      viewMode.display = 'none';
-    else
-      editMod.display = 'none'
+    if (this.state.editing) { viewMode.display = 'none'; } else { editMod.display = 'none'; }
     return (
       <li className={styles.item}>
         <div onDoubleClick={this.handleEdit} style={viewMode}>
@@ -52,7 +50,8 @@ class ToDoItem extends Component {
           style={editMod}
           value={title}
           onChange={(e) => this.props.setUpdate(e.target.value, id)}
-          onKeyDown={this.handleUpdateDone} />
+          onKeyDown={this.handleUpdateDone}
+        />
       </li>
     );
   }
