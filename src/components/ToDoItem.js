@@ -15,6 +15,10 @@ class ToDoItem extends Component {
     if (e.key === 'Enter')
       this.setState({ editing: false });
   }
+
+  componentWillUnmount() {
+    console.log('deleting todo item: ', this.props.id)
+  }
   render() {
     const { completed, id, title } = this.props.task;
     const completedStyle = {

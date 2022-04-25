@@ -6,24 +6,18 @@ import { v4 as uuid } from 'uuid'
 import '../App.css'
 export default class TodoContainer extends Component {
   state = {
-    todos: [
-      {
-        id: uuid(),
-        title: "Setup development environment",
-        completed: true
-      },
-      {
-        id: uuid(),
-        title: "Develop website and add content",
-        completed: false
-      },
-      {
-        id: uuid(),
-        title: "Deploy to live server",
-        completed: false
-      }
-    ],
+    todos: []
   };
+  componentDidMount() {
+    if (localStorage.getItem('todos')) {
+      this.setState({ todos: JSON.parse(localStorage.getItem('todos')) })
+    }
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.todos !== this.state.todos) {
+      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+  }
   handleChange = (id) => {
     this.setState(oldState => (
       {
