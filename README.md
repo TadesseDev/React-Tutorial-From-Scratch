@@ -9,12 +9,13 @@
 - React
 
 ## screenshot
+![Capture](https://user-images.githubusercontent.com/69077061/165183430-b1e8d1bc-c2a0-47aa-802b-abebc3e1958e.PNG)
 
-[Coming soon]()
+![Capture2](https://user-images.githubusercontent.com/69077061/165183233-866137c0-d86b-4e90-815b-cb73e73fa354.PNG)
 
 ## Live Demo
 
-[Coming soon]() 🙂
+[Go Live](https://tadesse-alemayehu.github.io/React-Tutorial-From-Scratch/) 🙂
 
 ## Getting Started
 
