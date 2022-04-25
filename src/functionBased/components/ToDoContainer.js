@@ -4,6 +4,9 @@ import Header from './Header';
 import InputToDo from './InputToDo'
 import { v4 as uuid } from 'uuid'
 import '../App.css'
+import About from '../pages/About'
+import NotMatch from '../pages/NotMatch'
+import { Route, Switch } from 'react-router-dom';
 const TodoContainer = (props) => {
 
   function getInitialTodos() {
@@ -47,18 +50,33 @@ const TodoContainer = (props) => {
   }
 
   return (
-    <div id="container">
-      <div className="inner">
-        <Header />
-        <InputToDo addTask={addTask} />
-        <ToDoList
-          toDoList={todos}
-          changeHandlerProp={handleChange}
-          deleteHandler={delTask}
-          setUpdate={setUpdate}
-        />
-      </div>
-    </div>
+    //  <Routes>
+    //     <Route path="/" element={} />
+    //     <Route path="/about" element={<About index />} />
+    //     <Route path="*" element={<NotMatch />} />
+    //   </Routes>
+    <Switch>
+      <Route exact path="/">
+        <div id="container">
+          <div className="inner">
+            <Header />
+            <InputToDo addTask={addTask} />
+            <ToDoList
+              toDoList={todos}
+              changeHandlerProp={handleChange}
+              deleteHandler={delTask}
+              setUpdate={setUpdate}
+            />
+          </div>
+        </div>
+      </Route>
+      <Route path="/about">
+        <About />
+      </Route>
+      <Route path="*">
+        <NotMatch />
+      </Route>
+    </Switch>
   )
 }
 

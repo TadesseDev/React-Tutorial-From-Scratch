@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 export default function Navbar() {
   const links = [
     {
@@ -17,7 +17,9 @@ export default function Navbar() {
     <nav className="navBar">
       <ul>
         {links.map(link => {
-          return <li key={link.id}>{link.text}</li>
+          return <li key={link.id}>
+            <NavLink to={link.path}>{link.text}</NavLink>
+          </li>
         })}
       </ul>
     </nav>
