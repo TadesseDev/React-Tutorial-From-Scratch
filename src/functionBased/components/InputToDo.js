@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { FaPlusCircle } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
+import PropTypes from 'prop-types';
 
 const InputToDo = (props) => {
   const [title, setTitle] = useState('');
+  const { addTask } = props;
   const updateTaskTitle = (e) => {
     setTitle(e.target.value);
   };
@@ -11,9 +13,9 @@ const InputToDo = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (title.trim()) {
-      props.addTask(title);
+      addTask(title);
       setTitle('');
-    } else { alert('pleas enter a valid text'); }
+    }
   };
   return (
     <form onSubmit={handleSubmit} className="form-container">
@@ -40,5 +42,8 @@ const InputToDo = (props) => {
       </IconContext.Provider>
     </form>
   );
+};
+InputToDo.propTypes = {
+  addTask: PropTypes.func.isRequired,
 };
 export default InputToDo;
