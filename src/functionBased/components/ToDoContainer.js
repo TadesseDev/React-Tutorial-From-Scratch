@@ -13,18 +13,13 @@ const TodoContainer = (props) => {
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
-    console.log('updating todo')
   }, [todos]);
   const handleChange = (id) => {
-    setTodos((oldState) => (
-      oldState.map(todo => {
-        if (todo.id === id)
-          todo.completed = !todo.completed;
-        return todo
-      }
-      )
-    )
-    );
+    setTodos(todos.map(todo => {
+      if (todo.id === id)
+        todo.completed = !todo.completed;
+      return todo
+    }));
   }
   const delTask = id => {
     setTodos(oldState => (
