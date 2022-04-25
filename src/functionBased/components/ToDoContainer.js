@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
+
+import { Route, Switch } from 'react-router-dom';
 import ToDoList from './ToDoList';
 import Header from './Header';
 import InputToDo from './InputToDo';
 import '../App.css';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
-import { Route, Switch } from 'react-router-dom';
 
-const TodoContainer = (props) => {
+const TodoContainer = () => {
   function getInitialTodos() {
     return JSON.parse(localStorage.getItem('todos')) || [];
   }
@@ -19,15 +20,15 @@ const TodoContainer = (props) => {
   }, [todos]);
   const handleChange = (id) => {
     setTodos(todos.map((todo) => {
-      if (todo.id === id) { todo.completed = !todo.completed; }
-      return todo;
+      const currentTask = todo;
+      if (currentTask.id === id) { currentTask.completed = !currentTask.completed; }
+      return currentTask;
     }));
   };
   const delTask = (id) => {
     setTodos((oldState) => (
       oldState.filter((todo) => todo.id !== id)
     ));
-    console.log(`deleting task ${id}`);
   };
   const addTask = (title) => {
     setTodos((oldState) => ([
@@ -41,8 +42,9 @@ const TodoContainer = (props) => {
   };
   const setUpdate = (updatedTitle, id) => {
     setTodos(todos.map((todo) => {
-      if (todo.id === id) { todo.title = updatedTitle; }
-      return todo;
+      const currentTask = todo;
+      if (currentTask.id === id) { currentTask.title = updatedTitle; }
+      return currentTask;
     }));
   };
 
