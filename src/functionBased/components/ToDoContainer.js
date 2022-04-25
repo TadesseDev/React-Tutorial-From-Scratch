@@ -16,8 +16,8 @@ const TodoContainer = (props) => {
     console.log('updating todo')
   }, [todos]);
   const handleChange = (id) => {
-    this.setTodos((oldState) => (
-      oldState.todos.map(todo => {
+    setTodos((oldState) => (
+      oldState.map(todo => {
         if (todo.id === id)
           todo.completed = !todo.completed;
         return todo
