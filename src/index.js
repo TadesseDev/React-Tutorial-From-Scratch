@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
 import TodoContainer from './functionBased/components/ToDoContainer'
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Navbar from './functionBased/components/Navbar'
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter >
+    <BrowserRouter basename={process.env.PUBLIC_URL} >
       <Navbar />
       <TodoContainer />
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root'));
