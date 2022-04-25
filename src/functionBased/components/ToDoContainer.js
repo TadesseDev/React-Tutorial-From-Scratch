@@ -1,79 +1,64 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import ToDoList from './ToDoList'
 import Header from './Header';
 import InputToDo from './InputToDo'
 import { v4 as uuid } from 'uuid'
 import '../App.css'
-export default class TodoContainer extends Component {
-  state = {
-    todos: []
-  };
-  componentDidMount() {
-    if (localStorage.getItem('todos')) {
-      this.setState({ todos: JSON.parse(localStorage.getItem('todos')) })
+const TodoContainer = (props) => {
+
+  function getInitialTodos() {
+    return JSON.parse(localStorage.getItem('todos')) || [];
+
+    const handleChange = (id) => {
+      this.setTodos((oldState) => (
+        oldState.todos.map(todo => {
+          if (todo.id === id)
+            todo.completed = !todo.completed;
+          return todo
+        }
+        )
+      )
+      );
     }
-  }
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.todos !== this.state.todos) {
-      localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    const delTask = id => {
+      setTodos(oldState => (
+        oldState.filter(todo => todo.id !== id)
+      ))
+      console.log('deleting task ' + id);
     }
-  }
-  handleChange = (id) => {
-    this.setState(oldState => (
-      {
+    const addTask = (title) => {
+      setTodos(oldState => ([
         ...oldState,
-        todos: oldState.todos.map(todo => {
-          if (todo.id === id) return {
-            ...todo,
-            completed: !todo.completed
-          }
-          return todo;
-        })
-      }
-    ));
-  }
-  delTask = id => {
-    this.setState(oldState => ({
-      todos: oldState.todos.filter(todo => todo.id !== id)
-    }))
-    console.log('deleting task ' + id);
-  }
-  addTask = (title) => {
-    this.setState(oldState => ({
-      todos: [
-        ...oldState.todos,
         {
           id: uuid(),
           title: title,
           completed: false
         }]
-    }))
-  }
-  setUpdate = (updatedTitle, id) => {
-    this.setState({
-      todos: [
-        ...this.state.todos.map(todo => {
-          if (todo.id === id)
-            todo.title = updatedTitle;
-          return todo;
-        })
-      ]
-    });
-  }
-  render() {
+      ))
+    }
+    const setUpdate = (updatedTitle, id) => {
+      setTodos(todos.map(todo => {
+        if (todo.id === id)
+          todo.title = updatedTitle;
+        return todo;
+      })
+      );
+    }
+
     return (
       <div id="container">
         <div className="inner">
           <Header />
-          <InputToDo addTask={this.addTask} />
+          <InputToDo addTask={addTask} />
           <ToDoList
-            toDoList={this.state.todos}
-            changeHandlerProp={this.handleChange}
-            deleteHandler={this.delTask}
-            setUpdate={this.setUpdate}
+            toDoList={todos}
+            changeHandlerProp={handleChange}
+            deleteHandler={delTask}
+            setUpdate={setUpdate}
           />
         </div>
       </div>
     )
   }
-}
+
+  export default TodoContainer;
