@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./ToDoItem.module.css"
 const ToDoItem = (props) => {
 
@@ -11,9 +11,12 @@ const ToDoItem = (props) => {
       setEditing(false);
   }
 
-  // const componentWillUnmount() {
-  //   console.log('deleting todo item: ', props.id)
-  // }
+  useEffect(() => {
+    return () => {
+      console.log('deleting todo item: ')
+    }
+  }, []);
+
   const { completed, id, title } = props.task;
   const completedStyle = {
     fontStyle: "italic",
