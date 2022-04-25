@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 export default function Navbar() {
   const links = [
@@ -13,9 +13,14 @@ export default function Navbar() {
       text: "About",
     },
   ]
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const handleToggle = () => {
+    setNavbarOpen(prev => !prev)
+  }
   return (
     <nav className="navBar">
-      <ul>
+      <button onClick={handleToggle}>{navbarOpen ? "Close" : "Open"}</button>
+      <ul className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
         {links.map(link => {
           return <li key={link.id}>
             <NavLink to={link.path}>{link.text}</NavLink>
