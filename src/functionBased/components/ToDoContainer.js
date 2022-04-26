@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 import ToDoList from './ToDoList';
 import Header from './Header';
 import InputToDo from './InputToDo';
-import '../App.css';
+import '../App.scss';
 import About from '../pages/About';
 import NotMatch from '../pages/NotMatch';
 
