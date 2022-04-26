@@ -22,7 +22,6 @@
   },
   "ignorePatterns": [
     "dist/",
-    "build/",
-    "src/classBased" //no need to lent this file since we are not using them
+    "build/" 
   ]
 }
