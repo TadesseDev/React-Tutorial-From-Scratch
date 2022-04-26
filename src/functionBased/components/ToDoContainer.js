@@ -49,11 +49,6 @@ const TodoContainer = () => {
   };
 
   return (
-    //  <Routes>
-    //     <Route path="/" element={} />
-    //     <Route path="/about" element={<About index />} />
-    //     <Route path="*" element={<NotMatch />} />
-    //   </Routes>
     <Switch>
       <Route exact path="/">
         <div id="container">
